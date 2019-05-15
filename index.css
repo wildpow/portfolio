@@ -1,0 +1,72 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+}
+.landing {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0px;
+  /* background: black url(images/cover.jpg);
+  background-size: cover;
+  background-position: top left; */
+}
+
+.cover {
+  width: 100%;
+  height: 100%;
+  background: black url(images/cover.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.intro {
+  background: black;
+  color: white;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.intro h1 {
+  /* align-self: start;
+  justify-self: start; */
+  font-size: 7rem;
+  margin: 0;
+  padding: 0;
+  font-family: "Playfair Display", serif;
+}
+
+.intro ul {
+  margin-top: 0;
+  justify-self: center;
+  font-size: 3rem;
+  list-style: none;
+  font-family: "Source Sans Pro", sans-serif;
+  display: grid;
+  grid-gap: 10px;
+  grid-template: repeat(3, 1fr);
+}
+
+.intro li {
+  transition: all 0.25s ease;
+  width: max-content;
+}
+
+.intro li:after {
+  margin-left: -10px;
+  display: block;
+  content: "";
+  height: 5px;
+  border-radius: 5px;
+  background: linear-gradient(to right, yellow, transparent);
+  width: fit-content;
+}
