@@ -1,13 +1,15 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import Image from "../components/image";
 import SEO from "../components/seo";
+import Hero from "../components/hero";
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
+    <Hero heroImg={data.heroImg} />
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
@@ -17,5 +19,17 @@ const IndexPage = () => (
     <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 );
+
+export const imgQuery = graphql`
+  query allImgsQuery {
+    heroImg: file(relativePath: { eq: "mount.jpg" }) {
+      childImageSharp {
+        sizes(maxWidth: 2400) {
+          ...GatsbyImageSharpSizes_withWebp_tracedSVG
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage;

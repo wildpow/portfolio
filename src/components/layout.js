@@ -6,11 +6,17 @@
  */
 
 import React from "react";
+import { Normalize } from "styled-normalize";
+import { createGlobalStyle } from "styled-components";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-
+import Navigation from "../components/navigation";
 import Header from "./header";
 import "./layout.css";
+const GlobalStyle = createGlobalStyle`
+@import url("https://fonts.googleapis.com/css?family=Lora|Open+Sans:300,400");
+`;
+// @import url('https://fonts.googleapis.com/css?family=Istok+Web|Lora:400,700&display=swap');
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,22 +31,17 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+      <GlobalStyle />
+      {/* <Normalize /> */}
+      <Navigation />
+      {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
+
+      <main>{children}</main>
+      <footer>
+        © {new Date().getFullYear()}, Built with
+        {` `}
+        <a href="https://www.gatsbyjs.org">Gatsby</a>
+      </footer>
     </>
   );
 };
