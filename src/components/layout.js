@@ -6,16 +6,18 @@
  */
 
 import React from "react";
-import { Normalize } from "styled-normalize";
+import styledNormalize from "styled-normalize";
 import { createGlobalStyle } from "styled-components";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import Navigation from "../components/navigation";
 import Header from "./header";
-import "./layout.css";
+// import "./layout.css";
 const GlobalStyle = createGlobalStyle`
+${styledNormalize}
 @import url("https://fonts.googleapis.com/css?family=Lora|Open+Sans:300,400");
 `;
+// @import url('https://fonts.googleapis.com/css?family=Istok+Web|Lora:400,700&display=swap');
 // @import url('https://fonts.googleapis.com/css?family=Istok+Web|Lora:400,700&display=swap');
 
 const Layout = ({ children }) => {
