@@ -11,7 +11,7 @@ import { createGlobalStyle } from "styled-components";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import Navigation from "../components/navigation";
-import Header from "./header";
+// import Header from "./header";
 // import "./layout.css";
 const GlobalStyle = createGlobalStyle`
 ${styledNormalize}

@@ -2,7 +2,7 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 
 import Layout from "../components/layout";
-import Image from "../components/image";
+// import Image from "../components/image";
 import SEO from "../components/seo";
 import Hero from "../components/hero";
 
@@ -22,7 +22,7 @@ const IndexPage = ({ data }) => (
 
 export const imgQuery = graphql`
   query allImgsQuery {
-    heroImg: file(relativePath: { eq: "mount.jpg" }) {
+    heroImg: file(relativePath: { eq: "hawaii.jpg" }) {
       childImageSharp {
         sizes(maxWidth: 2400) {
           ...GatsbyImageSharpSizes_withWebp_tracedSVG

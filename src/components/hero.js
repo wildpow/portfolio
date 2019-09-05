@@ -12,6 +12,7 @@ const HeroWrapper = styled.div`
 // #337ab7
 const Overlay = styled.div`
   background: #3173b3;
+  /* background: black; */
   position: absolute;
   margin: 0;
   padding: 0;
@@ -21,6 +22,7 @@ const Overlay = styled.div`
   top: 0;
   left: 0;
   opacity: 0.3;
+  /* opacity: 0.2; */
   width: 100%;
   height: 100%;
 `;
