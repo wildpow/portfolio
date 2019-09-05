@@ -8,9 +8,10 @@ const HeroWrapper = styled.div`
   height: 100vh;
   background-color: white;
 `;
-
+// #3173b3
+// #337ab7
 const Overlay = styled.div`
-  background: #337ab7;
+  background: #3173b3;
   position: absolute;
   margin: 0;
   padding: 0;

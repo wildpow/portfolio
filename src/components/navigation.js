@@ -44,13 +44,6 @@ const NavBar = styled.nav`
   align-items: center;
   position: fixed;
   z-index: 2;
-
-  a {
-    padding: 10px 15px;
-    display: inline-block;
-    text-decoration: none;
-    color: white;
-  }
 `;
 const NavLinks = styled.ul`
   list-style: none;
@@ -61,6 +54,13 @@ const NavLinks = styled.ul`
     text-decoration: none;
     color: white;
   }
+`;
+const Brand = styled.a`
+  padding: 10px 15px;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-size: 25px;
 `;
 const Navigation = () => {
   return (
@@ -76,7 +76,7 @@ const Navigation = () => {
       </Navbar>
     </NavWrapper> */}
       <NavBar>
-        <a href="#">AARON WILDER</a>
+        <Brand href="#">AARON WILDER</Brand>
         <NavLinks>
           <li>
             <a href="#">ABOUT ME</a>
@@ -85,7 +85,7 @@ const Navigation = () => {
             <a href="#">PROJECTS</a>
           </li>
           <li>
-            <a href="#">COPNTACT</a>
+            <a href="#">CONTACT</a>
           </li>
         </NavLinks>
       </NavBar>
