@@ -21,7 +21,7 @@ const Overlay = styled.div`
   border-bottom-width: thin;
   top: 0;
   left: 0;
-  opacity: 0.3;
+  opacity: 0.2;
   /* opacity: 0.2; */
   width: 100%;
   height: 100%;
@@ -36,11 +36,12 @@ const HeroText = styled.div`
   margin-right: -50%;
   transform: translate(-50%, -50%);
   font-family: "Lora", serif;
+
   h1 {
     font-size: 80px;
     font-weight: 900;
     line-height: 96px;
-    font-weight: bold !important;
+    /* font-weight: bold !important; */
   }
 `;
 const Hero = ({ heroImg }) => (

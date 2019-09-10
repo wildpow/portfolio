@@ -15,9 +15,18 @@ import Navigation from "../components/navigation";
 // import "./layout.css";
 const GlobalStyle = createGlobalStyle`
 ${styledNormalize}
-@import url("https://fonts.googleapis.com/css?family=Lora|Open+Sans:300,400");
+html {
+  box-sizing: border-box;
+  
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Istok+Web|Lora&display=swap');
+
 `;
-// @import url('https://fonts.googleapis.com/css?family=Istok+Web|Lora:400,700&display=swap');
+// @import url("https://fonts.googleapis.com/css?family=Lora|Open+Sans:300,400");
 // @import url('https://fonts.googleapis.com/css?family=Istok+Web|Lora:400,700&display=swap');
 
 const Layout = ({ children }) => {

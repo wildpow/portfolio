@@ -37,6 +37,8 @@ const NavWrapper = styled.header`
 // `;
 
 const NavBar = styled.nav`
+  /* font-family: "Istok Web", sans-serif; */
+
   background: transparent;
   width: 100%;
   display: flex;
