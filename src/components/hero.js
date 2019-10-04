@@ -45,7 +45,7 @@ const HeroText = styled.div`
   }
 `;
 const Hero = ({ heroImg }) => (
-  <HeroWrapper>
+  <HeroWrapper id="top">
     <Img
       sizes={heroImg.childImageSharp.sizes}
       style={{
