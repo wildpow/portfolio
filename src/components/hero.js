@@ -5,7 +5,7 @@ import Img from "gatsby-image";
 const HeroWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: white;
 `;
 // #3173b3
@@ -22,7 +22,6 @@ const Overlay = styled.div`
   top: 0;
   left: 0;
   opacity: 0.2;
-  /* opacity: 0.2; */
   width: 100%;
   height: 100%;
 `;
@@ -35,13 +34,21 @@ const HeroText = styled.div`
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
-  font-family: "Lora", serif;
-
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
   h1 {
     font-size: 80px;
     font-weight: 900;
     line-height: 96px;
-    /* font-weight: bold !important; */
+    margin: 10px;
+  }
+  p {
+    font-family: "Merriweather", serif;
+
+    font-weight: 700;
+    font-size: 30px;
+    margin-top: 0px;
+    padding-top: 0px;
   }
 `;
 const Hero = ({ heroImg }) => (
@@ -58,8 +65,8 @@ const Hero = ({ heroImg }) => (
     />
     <Overlay />
     <HeroText>
-      <h1>HI, I'M AARON</h1>
-      <p>HELLO</p>
+      <h1>Hi, I'm Aaron</h1>
+      <p>A full-stack developer</p>
     </HeroText>
   </HeroWrapper>
 );

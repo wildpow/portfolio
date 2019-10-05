@@ -1,9 +1,9 @@
 import React from "react";
-import styledNormalize from "styled-normalize";
-import { createGlobalStyle } from "styled-components";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import Navigation from "../components/navigation";
+import styledNormalize from "styled-normalize";
+import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
 ${styledNormalize}
 html {
