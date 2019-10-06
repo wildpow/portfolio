@@ -9,7 +9,8 @@ const AboutContainer = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: green;
+  /* background: #fbfbff; */
+  background-color: #f8f8ff;
 `;
 
 const Profile = styled(Img)`

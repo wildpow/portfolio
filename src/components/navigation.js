@@ -4,12 +4,8 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 import { useHasScrolled } from "../hooks/useHasScrolled";
 
 const NavBar = styled.nav`
-  transition: all 1s ease;
+  transition: all 1s ease-in-out;
   font-family: "Merriweather", serif;
-  /* font-family: "Oswald", sans-serif; */
-  /* font-family: "Montserrat", sans-serif; */
-  /* font-family: "Montserrat", sans-serif; */
-  /* font-family: "Istok Web", sans-serif; */
   font-weight: 700;
   background: ${props => (props.hasScrolled ? "white" : " transparent")};
   width: 100%;
@@ -18,7 +14,6 @@ const NavBar = styled.nav`
   align-items: center;
   position: fixed;
   z-index: 2;
-  /* opacity: ${props => (props.hasScrolled ? 0.9 : 1)}; */
   color: ${props => (props.hasScrolled ? "#5a8dca" : "white")};
   box-shadow: ${props =>
     props.hasScrolled ? "0px 6px 6px -6px rgba(52, 52, 52, 0.41)" : "none"};
@@ -27,45 +22,31 @@ const NavLinks = styled.ul`
   transition: all 1s ease;
   list-style: none;
   display: flex;
-  /* li a {
-    display: inline-block;
-    padding: 10px 15px;
-    font-size: 1.6rem;
-    text-decoration: none;
-    color: ${props => (props.hasScrolled ? "#5a8dca" : "white")};
-  } */
 `;
 
-const Links = css`
-  display: inline-block;
-  padding: 10px 15px;
-  font-size: 1.6rem;
-`;
 const Brand = styled(AnchorLink)`
   transition: all 1s ease;
-  padding: 10px 15px;
+  padding: 3px 15px;
   display: inline-block;
   text-decoration: none;
   color: ${props => (props.hasScrolled ? "#5a8dca" : "white")};
-  font-size: 2rem;
+  font-size: 1.5rem;
+  :hover {
+    color: #343434;
+  }
 `;
-const About = styled(AnchorLink)`
-  ${Links}
+
+const StyledLink = styled(AnchorLink)`
+  display: inline-block;
+  padding: 3px 15px;
+  font-size: 1.3rem;
+  transition: all 1s ease;
   text-decoration: ${props =>
-    props.activeSection === 1 ? "underline" : "none"};
+    props.activeSection === props.activeNumber ? "underline" : "none"};
   color: ${props => (props.hasScrolled ? "#5a8dca" : "white")};
-`;
-const Projects = styled(AnchorLink)`
-  ${Links}
-  text-decoration: ${props =>
-    props.activeSection === 2 ? "underline" : "none"};
-  color: ${props => (props.hasScrolled ? "#5a8dca" : "white")};
-`;
-const Contact = styled(AnchorLink)`
-  ${Links}
-  text-decoration: ${props =>
-    props.activeSection === 3 ? "underline" : "none"};
-  color: ${props => (props.hasScrolled ? "#5a8dca" : "white")};
+  :hover {
+    color: #343434;
+  }
 `;
 
 const Navigation = ({ activeSection }) => {
@@ -77,31 +58,34 @@ const Navigation = ({ activeSection }) => {
       </Brand>
       <NavLinks hasScrolled={scroll}>
         <li>
-          <About
+          <StyledLink
+            activeNumber={1}
             hasScrolled={scroll}
             activeSection={activeSection}
             href="#about"
           >
             About Me
-          </About>
+          </StyledLink>
         </li>
         <li>
-          <Projects
+          <StyledLink
+            activeNumber={2}
             hasScrolled={scroll}
             activeSection={activeSection}
             href="#projects"
           >
             Projects
-          </Projects>
+          </StyledLink>
         </li>
         <li>
-          <Contact
+          <StyledLink
+            activeNumber={3}
             hasScrolled={scroll}
             activeSection={activeSection}
             href="#contact"
           >
             Contact
-          </Contact>
+          </StyledLink>
         </li>
       </NavLinks>
     </NavBar>

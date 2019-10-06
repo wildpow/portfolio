@@ -1,18 +1,35 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Img from "gatsby-image";
 
+const FadeIn = keyframes`
+  from { opacity: 0; }
+  to { opacity: 1; }
+`;
+const Pulse = keyframes`
+from {
+  opacity: 0;
+  transform: matrix(1, 0, 0, 1, 0, 20);
+}
+to {
+
+  opacity: 1;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+`;
 const HeroWrapper = styled.div`
   position: relative;
   width: 100vw;
   height: 100vh;
   background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 // #3173b3
 // #337ab7
 const Overlay = styled.div`
   background: #3173b3;
-  /* background: black; */
   position: absolute;
   margin: 0;
   padding: 0;
@@ -29,22 +46,19 @@ const HeroText = styled.div`
   margin: 0;
   color: white;
   text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
+  animation-name: ${Pulse};
+  animation-duration: 1.5s;
+  animation-fill-mode: both;
   font-family: "Montserrat", sans-serif;
   font-weight: 900;
   h1 {
     font-size: 80px;
     font-weight: 900;
     line-height: 96px;
-    margin: 10px;
+    margin: 0px;
   }
   p {
     font-family: "Merriweather", serif;
-
     font-weight: 700;
     font-size: 30px;
     margin-top: 0px;
