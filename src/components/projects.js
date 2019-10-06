@@ -3,15 +3,12 @@ import styled from "styled-components";
 
 const ProjectContainer = styled.section`
   width: 100vw;
+  /* height: calc(100vh - 80px); */
   height: 100vh;
   background: yellow;
 `;
-const Projects = () => {
-  return (
-    <ProjectContainer id="projects">
-      <h1>Projects</h1>
-    </ProjectContainer>
-  );
-};
+const Projects = React.forwardRef((props, ref) => (
+  <ProjectContainer id="projects" ref={ref} {...props}></ProjectContainer>
+));
 
 export default Projects;

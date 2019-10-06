@@ -1,16 +1,15 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useRef } from "react";
+// import styled from "styled-components";
 import { graphql } from "gatsby";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
 import Hero from "../components/hero";
 import About from "../components/about";
 import Projects from "../components/projects";
 import Contact from "../components/contact";
-import { useIntersect } from "../hooks/useIntersect";
 import Navigation from "../components/navigation";
 import styledNormalize from "styled-normalize";
 import { createGlobalStyle } from "styled-components";
+import useScrollSpy from "../hooks/useScrollSpy";
+
 const GlobalStyle = createGlobalStyle`
 ${styledNormalize}
 html {
@@ -27,29 +26,23 @@ ${
 ${
   "" /* @import url('https://fonts.googleapis.com/css?family=Istok+Web|Lora&display=swap'); */
 }
-
-`;
-const Section = styled.section`
-  width: 100vw;
-  height: 100vh;
-  background-color: ${props => props.bg};
 `;
 
 const IndexPage = ({ data }) => {
-  const [ref, entry] = useIntersect({ rootMargin: "20px", threshold: 0.2 });
+  const sectionRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
+  const activeSection = useScrollSpy({
+    sectionElementRefs: sectionRefs,
+    offsetPx: -190
+  });
   return (
     <div>
+      {console.log(activeSection)}
       <GlobalStyle />
-      <Navigation hasScrolled={entry.isIntersecting} />
-      <div style={{ height: "100vh", width: "100vw" }}>
-        <Hero heroImg={data.heroImg} />
-      </div>
-      {console.log("vis", entry.isVisible, "isInt", entry.isIntersecting)}
-      <div ref={ref} style={{ height: "100vh", width: "100vw" }}>
-        <About profileImg={data.profileImg} />
-      </div>
-      <Projects />
-      <Contact />
+      <Navigation activeSection={activeSection} />
+      <Hero heroImg={data.heroImg} ref={sectionRefs[0]} />
+      <About profileImg={data.profileImg} ref={sectionRefs[1]} />
+      <Projects ref={sectionRefs[2]} />
+      <Contact ref={sectionRefs[3]} />
     </div>
   );
 };

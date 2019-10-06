@@ -4,8 +4,8 @@ import Img from "gatsby-image";
 
 const HeroWrapper = styled.div`
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: white;
 `;
 // #3173b3
@@ -51,10 +51,10 @@ const HeroText = styled.div`
     padding-top: 0px;
   }
 `;
-const Hero = ({ heroImg }) => (
-  <HeroWrapper id="top">
+const Hero = React.forwardRef((props, ref) => (
+  <HeroWrapper id="top" ref={ref} {...props}>
     <Img
-      sizes={heroImg.childImageSharp.sizes}
+      sizes={props.heroImg.childImageSharp.sizes}
       style={{
         position: "absolute",
         left: 0,
@@ -69,6 +69,6 @@ const Hero = ({ heroImg }) => (
       <p>A full-stack developer</p>
     </HeroText>
   </HeroWrapper>
-);
+));
 
 export default Hero;

@@ -3,16 +3,13 @@ import styled from "styled-components";
 
 const ContactContainer = styled.section`
   width: 100vw;
+  /* height: calc(100vh - 80px); */
   height: 100vh;
   background: blue;
 `;
 
-const Contact = () => {
-  return (
-    <ContactContainer id="contact">
-      <h1>Contact</h1>
-    </ContactContainer>
-  );
-};
+const Contact = React.forwardRef((props, ref) => (
+  <ContactContainer id="contact" ref={ref} {...props}></ContactContainer>
+));
 
 export default Contact;

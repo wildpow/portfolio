@@ -3,8 +3,9 @@ import Img from "gatsby-image";
 import styled from "styled-components";
 
 const AboutContainer = styled.section`
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  /* height: calc(100vh - 80px); */
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,16 +23,16 @@ const AboutWrapper = styled.div`
   }
 `;
 
-const About = ({ profileImg }) => {
+const About = React.forwardRef((props, ref) => {
   return (
-    <AboutContainer id="about">
+    <AboutContainer id="about" ref={ref} {...props}>
       <h1>About Me</h1>
       <AboutWrapper>
-        <Profile sizes={profileImg.childImageSharp.sizes} />
+        <Profile sizes={props.profileImg.childImageSharp.sizes} />
         <aside></aside>
       </AboutWrapper>
     </AboutContainer>
   );
-};
+});
 
 export default About;

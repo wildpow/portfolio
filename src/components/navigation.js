@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { useHasScrolled } from "../hooks/useHasScrolled";
 
@@ -18,7 +18,7 @@ const NavBar = styled.nav`
   align-items: center;
   position: fixed;
   z-index: 2;
-  opacity: ${props => (props.hasScrolled ? 0.9 : 1)};
+  /* opacity: ${props => (props.hasScrolled ? 0.9 : 1)}; */
   color: ${props => (props.hasScrolled ? "#5a8dca" : "white")};
   box-shadow: ${props =>
     props.hasScrolled ? "0px 6px 6px -6px rgba(52, 52, 52, 0.41)" : "none"};
@@ -27,15 +27,20 @@ const NavLinks = styled.ul`
   transition: all 1s ease;
   list-style: none;
   display: flex;
-  li a {
+  /* li a {
     display: inline-block;
     padding: 10px 15px;
     font-size: 1.6rem;
     text-decoration: none;
     color: ${props => (props.hasScrolled ? "#5a8dca" : "white")};
-  }
+  } */
 `;
 
+const Links = css`
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 1.6rem;
+`;
 const Brand = styled(AnchorLink)`
   transition: all 1s ease;
   padding: 10px 15px;
@@ -44,7 +49,26 @@ const Brand = styled(AnchorLink)`
   color: ${props => (props.hasScrolled ? "#5a8dca" : "white")};
   font-size: 2rem;
 `;
-const Navigation = () => {
+const About = styled(AnchorLink)`
+  ${Links}
+  text-decoration: ${props =>
+    props.activeSection === 1 ? "underline" : "none"};
+  color: ${props => (props.hasScrolled ? "#5a8dca" : "white")};
+`;
+const Projects = styled(AnchorLink)`
+  ${Links}
+  text-decoration: ${props =>
+    props.activeSection === 2 ? "underline" : "none"};
+  color: ${props => (props.hasScrolled ? "#5a8dca" : "white")};
+`;
+const Contact = styled(AnchorLink)`
+  ${Links}
+  text-decoration: ${props =>
+    props.activeSection === 3 ? "underline" : "none"};
+  color: ${props => (props.hasScrolled ? "#5a8dca" : "white")};
+`;
+
+const Navigation = ({ activeSection }) => {
   const scroll = useHasScrolled(200);
   return (
     <NavBar hasScrolled={scroll}>
@@ -53,13 +77,31 @@ const Navigation = () => {
       </Brand>
       <NavLinks hasScrolled={scroll}>
         <li>
-          <AnchorLink href="#about">About Me</AnchorLink>
+          <About
+            hasScrolled={scroll}
+            activeSection={activeSection}
+            href="#about"
+          >
+            About Me
+          </About>
         </li>
         <li>
-          <AnchorLink href="#projects">Projects</AnchorLink>
+          <Projects
+            hasScrolled={scroll}
+            activeSection={activeSection}
+            href="#projects"
+          >
+            Projects
+          </Projects>
         </li>
         <li>
-          <AnchorLink href="#contact">Contact</AnchorLink>
+          <Contact
+            hasScrolled={scroll}
+            activeSection={activeSection}
+            href="#contact"
+          >
+            Contact
+          </Contact>
         </li>
       </NavLinks>
     </NavBar>
