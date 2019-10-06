@@ -1,6 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
-import styled from "styled-components";
+// import styled from "styled-components";
+import styled from "@emotion/styled";
 
 const AboutContainer = styled.section`
   width: 100vw;

@@ -1,11 +1,12 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "@emotion/styled";
+import { keyframes } from "@emotion/core";
 import Img from "gatsby-image";
 
-const FadeIn = keyframes`
-  from { opacity: 0; }
-  to { opacity: 1; }
-`;
+// const FadeIn = keyframes`
+//   from { opacity: 0; }
+//   to { opacity: 1; }
+// `;
 const Pulse = keyframes`
 from {
   opacity: 0;
@@ -68,6 +69,8 @@ const HeroText = styled.div`
 const Hero = React.forwardRef((props, ref) => (
   <HeroWrapper id="top" ref={ref} {...props}>
     <Img
+      // placeholderStyle={{ backgroundColor: "#5a8dca", color: "purple" }}
+      loading="eager"
       sizes={props.heroImg.childImageSharp.sizes}
       style={{
         position: "absolute",

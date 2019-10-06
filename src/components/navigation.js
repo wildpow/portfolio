@@ -1,7 +1,8 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "@emotion/styled";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { useHasScrolled } from "../hooks/useHasScrolled";
+import { Flex, Box, Link, Text } from "rebass";
 
 const NavBar = styled.nav`
   transition: all 1s ease-in-out;
@@ -52,43 +53,87 @@ const StyledLink = styled(AnchorLink)`
 const Navigation = ({ activeSection }) => {
   const scroll = useHasScrolled(200);
   return (
-    <NavBar hasScrolled={scroll}>
-      <Brand hasScrolled={scroll} href="#top">
+    <Flex px={2} color="white" bg="black" alignItems="center">
+      <Text
+        p={3}
+        fontWeight="bold"
+        sx={{
+          fontSize: 5
+        }}
+      >
         Aaron Wilder
-      </Brand>
-      <NavLinks hasScrolled={scroll}>
-        <li>
-          <StyledLink
-            activeNumber={1}
-            hasScrolled={scroll}
-            activeSection={activeSection}
-            href="#about"
-          >
-            About Me
-          </StyledLink>
-        </li>
-        <li>
-          <StyledLink
-            activeNumber={2}
-            hasScrolled={scroll}
-            activeSection={activeSection}
-            href="#projects"
-          >
-            Projects
-          </StyledLink>
-        </li>
-        <li>
-          <StyledLink
-            activeNumber={3}
-            hasScrolled={scroll}
-            activeSection={activeSection}
-            href="#contact"
-          >
-            Contact
-          </StyledLink>
-        </li>
-      </NavLinks>
-    </NavBar>
+      </Text>
+      <Box mx="auto" />
+      <Link
+        variant="nav"
+        href="#!"
+        sx={{
+          fontFamily: "monospace",
+          fontSize: [3, 4, 5]
+        }}
+      >
+        About
+      </Link>
+      <Link
+        variant="nav"
+        href="#!"
+        m
+        sx={{
+          fontFamily: "monospace",
+          fontSize: [3, 4, 5]
+        }}
+      >
+        Projects
+      </Link>
+      <Link
+        variant="nav"
+        href="#!"
+        sx={{
+          fontFamily: "monospace",
+          fontSize: [3, 4, 5]
+        }}
+      >
+        Contact
+      </Link>
+    </Flex>
+
+    // <NavBar hasScrolled={scroll}>
+    //   <Brand hasScrolled={scroll} href="#top">
+    //     Aaron Wilder
+    //   </Brand>
+    //   <NavLinks hasScrolled={scroll}>
+    //     <li>
+    //       <StyledLink
+    //         activeNumber={1}
+    //         hasScrolled={scroll}
+    //         activeSection={activeSection}
+    //         href="#about"
+    //       >
+    //         About Me
+    //       </StyledLink>
+    //     </li>
+    //     <li>
+    //       <StyledLink
+    //         activeNumber={2}
+    //         hasScrolled={scroll}
+    //         activeSection={activeSection}
+    //         href="#projects"
+    //       >
+    //         Projects
+    //       </StyledLink>
+    //     </li>
+    //     <li>
+    //       <StyledLink
+    //         activeNumber={3}
+    //         hasScrolled={scroll}
+    //         activeSection={activeSection}
+    //         href="#contact"
+    //       >
+    //         Contact
+    //       </StyledLink>
+    //     </li>
+    //   </NavLinks>
+    // </NavBar>
   );
 };
 
