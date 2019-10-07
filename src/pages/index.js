@@ -49,7 +49,7 @@ const IndexPage = ({ data }) => {
 
 export const imgQuery = graphql`
   query allImgsQuery {
-    heroImg: file(relativePath: { eq: "hero/hawaii3.jpg" }) {
+    heroImg: file(relativePath: { eq: "hero/hawaii10.jpg" }) {
       childImageSharp {
         sizes(maxWidth: 2400) {
           ...GatsbyImageSharpSizes_withWebp_tracedSVG

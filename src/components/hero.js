@@ -52,7 +52,7 @@ const HeroText = styled.div`
   font-family: "Montserrat", sans-serif;
   font-weight: 900;
   h1 {
-    font-size: 80px;
+    font-size: 4.2rem;
     font-weight: 900;
     line-height: 96px;
     margin: 0px;
@@ -60,7 +60,7 @@ const HeroText = styled.div`
   p {
     font-family: "Merriweather", serif;
     font-weight: 700;
-    font-size: 30px;
+    font-size: 1.3rem;
     margin-top: 0px;
     padding-top: 0px;
   }
@@ -80,7 +80,7 @@ const Hero = React.forwardRef((props, ref) => (
     <Overlay />
     <HeroText>
       <h1>Hi, I'm Aaron</h1>
-      <p>A full-stack developer</p>
+      <p>Always looking for a new adventure.</p>
     </HeroText>
   </HeroWrapper>
 ));
