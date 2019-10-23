@@ -8,7 +8,6 @@
 import { ThemeProvider } from "emotion-theming";
 import theme from "./src/theme";
 // import theme2 from "@rebass/preset-material";
-
 import React from "react";
 
 export const wrapRootElement = ({ element }) => {
