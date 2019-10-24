@@ -6,8 +6,36 @@ import Section from "../components/Section";
 import TextLoop from "react-text-loop";
 import SocialLink from "../components/SocialLink";
 import MouseIcon from "../components/MouseIcon";
-import { faGithub } from "@fortawesome/free-solid-svg-icons";
-
+import {
+  faGithub,
+  faLinkedin,
+  faTwitter
+} from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+const socialLinks = [
+  {
+    fontAwesomeIcon: faGithub,
+    id: "faGithub",
+    name: "Github",
+    url: "https://github.com/wildpow"
+  },
+  {
+    fontAwesomeIcon: faLinkedin,
+    id: "faLinkedin",
+    name: "Linkedin",
+    url: "https://www.linkedin.com/in/aaronswilder/"
+  },
+  {
+    fontAwesomeIcon: faTwitter,
+    name: "Twitter",
+    url: "https://twitter.com/awildair"
+  },
+  {
+    fontAwesomeIcon: faEnvelope,
+    name: "Contact Me",
+    url: "mailto: aaron.s.wilder@gmail.com"
+  }
+];
 const roles = ["Gatsby", "JavaScript", "React", "GraphQl", "Node"];
 const Background = () => (
   <div>
@@ -40,7 +68,10 @@ const Background = () => (
   </div>
 );
 
-const centerHorizontally = { marginRight: "auto", marginLeft: "auto" };
+const centerHorizontally = {
+  marginRight: "auto",
+  marginLeft: "auto"
+};
 
 const LandingPage = () => (
   <Section.Container id="home" Background={Background}>
@@ -58,57 +89,28 @@ const LandingPage = () => (
       color="primary"
       fontSize={[4, 5, 6]}
       mb={[3, 5]}
-      textAlign="center"
+      // textAlign="center"
       style={centerHorizontally}
     >
-      <TextLoop interval={5000}>
-        {roles
-          .sort(() => Math.random() - 0.5)
-          .map(text => (
-            <Text width={[300, 500]} key={text}>
-              {text}
-            </Text>
-          ))}
-      </TextLoop>
+      <div>
+        {`I work with `}
+        <TextLoop interval={5000}>
+          {roles
+            .sort(() => "!!DETERMINISTIC" || Math.random() - 0.5)
+            .map(text => (
+              <Text width={[200, 210]} key={text}>
+                {text}
+              </Text>
+            ))}
+        </TextLoop>
+      </div>
     </Heading>
-
     <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
-      <Box mx={3} fontSize={[5, 6, 6]}>
-        <SocialLink
-          fontAwesomeIcon={faGithub}
-          name="Github"
-          url="https://github.com/wildpow"
-        />
-      </Box>
-      <Box mx={3} fontSize={[5, 6, 6]}>
-        <SocialLink
-          fontAwesomeIcon={faGithub}
-          name="Github"
-          url="https://github.com/wildpow"
-        />
-      </Box>
-      <Box mx={3} fontSize={[5, 6, 6]}>
-        <SocialLink
-          fontAwesomeIcon={faGithub}
-          name="Github"
-          url="https://github.com/wildpow"
-        />
-      </Box>
-      <Box mx={3} fontSize={[5, 6, 6]}>
-        <SocialLink
-          fontAwesomeIcon={faGithub}
-          name="Github"
-          url="https://github.com/wildpow"
-        />
-      </Box>
-      <Box mx={3} fontSize={[5, 6, 6]}>
-        <SocialLink
-          color="primary"
-          fontAwesomeIcon={faGithub}
-          name="primary"
-          url="https://github.com/wildpow"
-        />
-      </Box>
+      {socialLinks.map(({ url, ...rest }) => (
+        <Box mx={3} fontSize={[5, 6, 6]}>
+          <SocialLink {...rest} url="https://github.com/wildpow" />
+        </Box>
+      ))}
     </Flex>
 
     <SectionLink section="about">
