@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { Section } from "react-scroll-section";
 
-const SectionContainer = styled.div`
+const SectionContainer = styled.section`
   min-height: 100vh;
   min-width: 320px;
   max-width: 1366px;
