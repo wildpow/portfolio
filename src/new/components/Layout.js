@@ -1,9 +1,12 @@
 import React from "react";
 import { ScrollingProvider } from "react-scroll-section";
 import { Global, css } from "@emotion/core";
+import config from "react-reveal/globals";
 import emotionNormalize from "emotion-normalize";
 require("typeface-open-sans");
 require("typeface-cabin");
+
+config({ ssrFadeout: true });
 
 const globalStyles = css`
   ${"" /* ${emotionNormalize} */}

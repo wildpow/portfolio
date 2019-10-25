@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { Heading } from "rebass";
 import { Section } from "react-scroll-section";
+import Slide from "react-reveal/Slide";
+import LinkAnimated from "./LinkAnimated";
 
 const SectionContainer = styled.section`
   min-height: 100vh;
@@ -23,6 +26,21 @@ const Container = ({ id, children, Background = DefaultBackground }) => (
   </Section>
 );
 
+const Header = ({ name, icon = "", label = "" }) => (
+  <Slide left>
+    <Heading color="secondaryDark" mb={4}>
+      <LinkAnimated selected>
+        {name}
+        {icon && (
+          <span role="img" aria-label={label} style={{ marginLeft: "10px" }}>
+            {icon}
+          </span>
+        )}
+      </LinkAnimated>
+    </Heading>
+  </Slide>
+);
 export default {
-  Container
+  Container,
+  Header
 };

@@ -28,20 +28,8 @@ const Header = () => (
           {({ allLinks }) => {
             return (
               <>
-                <Heading
-                  onClick={allLinks.home.onClick}
-                  color="white"
-                  fontWeight="300"
-                  style={{
-                    textTransform: "uppercase",
-                    cursor: "pointer"
-                  }}
-                  fontSize={[2, 5]}
-                >
-                  AW
-                </Heading>
+                <RouteLinks {...allLinks.home} name="Aaron Wilder" />
                 <Flex mr={[0, 3, 5]}>
-                  <RouteLinks {...allLinks.home} name="Home" />
                   <RouteLinks {...allLinks.about} name="About" />
                   <RouteLinks {...allLinks.projects} name="Projects" />
                   <RouteLinks {...allLinks.contact} name="Contact" />

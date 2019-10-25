@@ -1,7 +1,14 @@
 import React from "react";
 import Triangle from "../components/Triangle";
 import Section from "../components/Section";
-
+import { Image, Text, Flex, Box } from "rebass";
+import Fade from "react-reveal/Fade";
+import { CardContainer, Card } from "../components/Card";
+const projectsObj = [
+  "E.S.C. Mattress Center",
+  "Backwoods",
+  "Disk Golf Tracker"
+];
 const Background = () => (
   <div>
     <Triangle
@@ -37,7 +44,14 @@ const Background = () => (
 
 const Projects = () => (
   <Section.Container id="projects" Background={Background}>
-    <h1>Projects</h1>
+    <Section.Header name="Projects" icon="💻" label="notebook" />
+    <CardContainer minWidth="350px">
+      {projectsObj.map((p, i) => (
+        <Fade bottom delay={i * 200} key={p.id}>
+          {p}
+        </Fade>
+      ))}
+    </CardContainer>
   </Section.Container>
 );
 
