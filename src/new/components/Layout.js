@@ -2,9 +2,11 @@ import React from "react";
 import { ScrollingProvider } from "react-scroll-section";
 import { Global, css } from "@emotion/core";
 import emotionNormalize from "emotion-normalize";
+require("typeface-open-sans");
+require("typeface-cabin");
 
 const globalStyles = css`
-  ${emotionNormalize}
+  ${"" /* ${emotionNormalize} */}
   html {
     box-sizing: border-box;
   }
@@ -13,7 +15,14 @@ const globalStyles = css`
   *:after {
     box-sizing: inherit;
   }
-  @import url("https://fonts.googleapis.com/css?family=Merriweather:400,900|Montserrat:400,700,900&display=swap");
+  body {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Cabin, "Open Sans", sans-serif;
+    font-display: swap;
+    font-display: fallback;
+    overflow-x: hidden;
+  }
 `;
 const Layout = ({ children }) => {
   return (

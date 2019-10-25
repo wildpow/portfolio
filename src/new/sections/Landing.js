@@ -76,6 +76,7 @@ const centerHorizontally = {
 const LandingPage = () => (
   <Section.Container id="home" Background={Background}>
     <Heading
+      fontFamily="heading"
       textAlign="center"
       as="h1"
       color="primary"

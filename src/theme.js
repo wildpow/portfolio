@@ -15,7 +15,9 @@ export default merge(preset, {
     secondaryDark: "#c60055"
   },
   fonts: {
-    body: "Montserrat, sans-serif",
-    heading: "Merriweather, serif"
+    body: "font-family: Cabin, 'Open Sans', sans-serif",
+    // body: "Montserrat, sans-serif",
+    // heading: "Merriweather, serif",
+    heading: "font-family: Cabin, 'Open Sans', sans-serif"
   }
 });
