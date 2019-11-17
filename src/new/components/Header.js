@@ -34,11 +34,13 @@ const Header = () => (
                     src={Logo}
                     width="50px"
                     alt="Portfolio Logo"
-                    onClick={allLinks.home.onClick}
+                    // onClick={allLinks.home.onClick}
                     sx={{
-                      borderRadius: "50%",
-                      border: "4px solid",
-                      borderColor: "white",
+                      boxShadow: "0 0 2px 2px white",
+                      borderRadius: "100%",
+                      overflow: "hidden",
+                      // border: "4px solid",
+                      // borderColor: "white",
                       transition: " all 0.25s ease-out",
 
                       ":hover": {
